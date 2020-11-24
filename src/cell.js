@@ -2,15 +2,19 @@ import React, { Component } from 'react';
 
 export default class Cell extends Component {
     constructor(props) {
-        console.log(props)
         super()
         this.state = {
-            color: props.value
+            color: props.value,
+            originalColor: props.value
         }
     }
 
     changeColor = () => {
-        this.setState({color: '#333'})
+        if (this.state.color === this.state.originalColor) {
+            this.setState({color: '#333'})
+        } else {
+            this.setState({color: this.state.originalColor})
+        }
     }
 
     render() {
@@ -19,3 +23,11 @@ export default class Cell extends Component {
         )
     }
 }
+
+// changeColor = () => {
+//     if (this.state.currentColor === this.state.originalColor) {
+//         this.setState({currentColor: '#333'})
+//     } else {
+//         this.setState({currentColor: this.state.originalColor})
+//     }
+// }
