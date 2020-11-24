@@ -5,15 +5,15 @@ export default class Cell extends Component {
         super()
         this.state = {
             color: props.value,
-            originalColor: props.value
         }
+        this.originalColor = props.value
     }
 
     changeColor = () => {
-        if (this.state.color === this.state.originalColor) {
+        if (this.state.color === this.originalColor) {
             this.setState({color: '#333'})
         } else {
-            this.setState({color: this.state.originalColor})
+            this.setState({color: this.originalColor})
         }
     }
 
